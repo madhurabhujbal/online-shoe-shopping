@@ -69,7 +69,7 @@ let shoeList =
     ]
 
 app.get ("/", function (req,res) {
-    res.render ( "shoes.ejs" );
+    res.render ( "home.ejs" );
 } );
 
 app.get("/url", (req, res, next) => {
