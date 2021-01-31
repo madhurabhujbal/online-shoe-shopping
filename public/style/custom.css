@@ -1,3 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h3 {
+  margin-left: 2em;
+}
+
+#carouselExampleControls {
+  height: 50%;
+}
+
 .card {
   box-shadow: 0px 0px 15px rgb(190, 188, 188);
   height: 100%;
