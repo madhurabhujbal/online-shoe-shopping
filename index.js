@@ -68,6 +68,10 @@ let shoeList =
         }
     ]
 
+app.get ("/", function (req,res) {
+    res.render ( "shoes.ejs" );
+} );
+
 app.get("/url", (req, res, next) => {
     res.json(shoeList);
 });
