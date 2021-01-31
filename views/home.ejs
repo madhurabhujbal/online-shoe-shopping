@@ -19,12 +19,14 @@
         </nav>
 
         <!-- project cards  -->
+        <% Object.keys(shoeList).forEach(function (key) { %>
+        <h3><%=key%></h3>
         <div class="row">
-        <% for(let i = 0; i < shoeList.men.length; i++) { %>
-          <div class="col-sm-3">
+            <% for(let j = 0; j < shoeList[key].length; j++) { %>
+            <div class="col-sm-3">
             <div class="card">
               <div class="image-wrap">
-                <img class="card-img-top image-zoom" src="<%=shoeList.men[i].url%>" alt="Card image cap"/>
+                <img class="card-img-top image-zoom" src="<%=shoeList[key][j].url%>" alt="Card image cap"/>
               </div>
               <div class="card-body">
                 <h5 class="card-title">Shoe</h5>
@@ -33,8 +35,9 @@
               </div>
             </div>
           </div>
-        <% } %>
+          <% } %>
         </div>
+        <% }) %>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
