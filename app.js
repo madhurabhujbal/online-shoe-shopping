@@ -11,14 +11,19 @@ app.get ("/", function (req, res) {
 
 app.get ("/details/:id", function (req, res) {
     let shoeId = req.params.id;
+    let shoeInfo = null;
     for(let catagory in shoeList) {
         shoeList[catagory].forEach(shoe => {
             if(shoe.id == shoeId) {
-                res.render ("details.ejs", shoe);
+                shoeInfo = shoe;
             }
         });
     };
-    res.send(`Details for shoe id ${shoeId} not found`);
+    if(shoeInfo) {
+        res.render ("details.ejs", shoeInfo);
+    } else {
+        res.send(`Details for shoe id ${shoeId} not found`);
+    }
 });
 
 app.get("/url", (req, res) => {
