@@ -9,6 +9,10 @@ app.get ("/", function (req, res) {
     res.render ("home.ejs", shoeList);
 } );
 
+app.get ("/details", function (req, res) {
+    res.render ("details.ejs");
+} );
+
 app.get("/url", (req, res) => {
     res.json(shoeList);
 });
