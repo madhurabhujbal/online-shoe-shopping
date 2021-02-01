@@ -9,8 +9,8 @@ app.get ("/", function (req, res) {
     res.render ("home.ejs", shoeList);
 } );
 
-app.get ("/details", function (req, res) {
-    res.render ("details.ejs");
+app.get ("/details/:id", function (req, res) {
+    res.render ("details.ejs", {id: req.params.id});
 } );
 
 app.get("/url", (req, res) => {
