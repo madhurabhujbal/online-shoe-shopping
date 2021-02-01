@@ -10,16 +10,16 @@ app.get ("/", function (req, res) {
 } );
 
 app.get ("/details/:id", function (req, res) {
-    let shoeInfo;
+    let shoeId = req.params.id;
     for(let catagory in shoeList) {
         shoeList[catagory].forEach(shoe => {
-            if(shoe.id == req.params.id) {
-                shoeInfo = shoe;
+            if(shoe.id == shoeId) {
+                res.render ("details.ejs", shoe);
             }
         });
     };
-    res.render ("details.ejs", shoeInfo);
-} );
+    res.send(`Details for shoe id ${shoeId} not found`);
+});
 
 app.get("/url", (req, res) => {
     res.json(shoeList);
