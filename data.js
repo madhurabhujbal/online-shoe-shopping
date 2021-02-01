@@ -6,7 +6,7 @@ let shoeList = {
             name: 'Sports Shoe',
             price: '£42.99',
             image: '/images/men/blueShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         },
         {
@@ -14,7 +14,7 @@ let shoeList = {
             name: 'Running Shoe',
             price: '£52.99',
             image: '/images/men/greenShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         },
         {
@@ -22,7 +22,7 @@ let shoeList = {
             name: 'Badminton Shoe',
             price: '£99.99',
             image: '/images/men/pinkShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         },
         {
@@ -30,7 +30,7 @@ let shoeList = {
             name: 'Casual Shoe',
             price: '£79.99',
             image: '/images/men/lightPinkShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         }
     ],
@@ -40,7 +40,7 @@ let shoeList = {
             name: 'Sports Shoe',
             price: '£42.99',
             image: '/images/women/blueShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         },
         {
@@ -48,7 +48,7 @@ let shoeList = {
             name: 'Running Shoe',
             price: '£52.99',
             image: '/images/women/greenShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         },
         {
@@ -56,7 +56,7 @@ let shoeList = {
             name: 'Badminton Shoe',
             price: '£99.99',
             image: '/images/women/pinkShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         },
         {
@@ -64,7 +64,7 @@ let shoeList = {
             name: 'Casual Shoe',
             price: '£79.99',
             image: '/images/women/lightPinkShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         }
     ],
@@ -75,7 +75,7 @@ let shoeList = {
             name: 'Sports Shoe',
             price: '£42.99',
             image: '/images/kids/blueShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         },
         {
@@ -83,7 +83,7 @@ let shoeList = {
             name: 'Running Shoe',
             price: '£52.99',
             image: '/images/kids/greenShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         },
         {
@@ -91,7 +91,7 @@ let shoeList = {
             name: 'Badminton Shoe',
             price: '£99.99',
             image: '/images/kids/pinkShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         },
         {
@@ -99,7 +99,7 @@ let shoeList = {
             name: 'Casual Shoe',
             price: '£79.99',
             image: '/images/kids/lightPinkShoe.png',
-            views: ['/images/men/side1.png', '/images/men/side2.png', '/images/men/side3.png'],
+            views: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
         }
     ]
