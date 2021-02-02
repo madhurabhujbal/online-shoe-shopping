@@ -33,7 +33,7 @@ h3 {
 .image-zoom {
   transition: transform 1s, filter 1.5s ease;
   transform-origin: center center;
-  filter: brightness(60%);
+  filter: brightness(80%);
 }
 .image-zoom:hover {
   transform: scale(1.2);
@@ -43,7 +43,9 @@ h3 {
 .card-img-top {
   height: 15vw;
   max-width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  display: block;
+  margin: auto;
 }
 
 .row {
