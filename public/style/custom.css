@@ -54,11 +54,21 @@ h3 {
   margin-right: 0px;
   margin-left: 0px;
 }
+@media only screen and (min-width: 600px) {
+  .shoe-image {
+    max-width: 100%;
+    max-height: 30vw;
+    overflow: hidden;
+    display: block;
+    margin: auto;
+  }
+}
+.size-button {
+  margin-top: 5em;
+  padding: 1;
+}
 
-.shoe-image {
-  max-width: 100%;
-  max-height: 30vw;
-  overflow: hidden;
-  display: block;
-  margin: auto;
+.btn {
+  outline: #000;
+  color: #000;
 }
