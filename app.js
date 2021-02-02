@@ -20,7 +20,7 @@ app.get ("/details/:id", function (req, res) {
         });
     };
     if(shoeInfo) {
-        res.render ("details.ejs", shoeInfo);
+        res.render ("details.ejs", {shoeInfo});
     } else {
         res.send(`Details for shoe id ${shoeId} not found`);
     }
