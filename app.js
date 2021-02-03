@@ -19,7 +19,7 @@ app.get("/", function (req, res) {
 } );
 
 app.get("/sign-in", function (req, res) {
-    let user = req.session.user;
+    let user = req.session.username;
     if(user) {
         res.send(`You are already logged in as ${user}`);
     } else {
@@ -30,9 +30,14 @@ app.get("/sign-in", function (req, res) {
 app.post("/sign-in", function (req, res) {
     let user = req.body.user;
     // TODO: authenticate user here
-    req.session.user = user;
+    req.session.username = user;
     res.send(`Signed in successfully with username ${req.body.user}`);
 } );
+
+app.get("/logout", function(req, res) {
+    req.session.destroy();
+    res.render("home.ejs", {shoeList});
+});
 
 app.get ("/details/:id", function (req, res) {
     let shoeId = req.params.id;
