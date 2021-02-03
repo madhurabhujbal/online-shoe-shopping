@@ -22,12 +22,15 @@
         <div class="row">
           <div class="col-sm-8">
             <div class="row">
+              <% for(let i = 0; i < shoeInfo.shoeviews.length; i++) { %>
               <div class="col-sm-6 shoe-image">
-                  <img class="img-fluid" src="<%=shoeInfo.image%>"/>
+                  <img class="img-fluid" src="<%=shoeInfo.shoeviews[i]%>"/>
               </div>
-              <div class="col-sm-6 shoe-image">
-                <img class="img-fluid" src="<%=shoeInfo.shoeviews[0]%>"/>
-              </div>
+                <%if (i % 2 == 1) { %>
+                  </div>
+                  <div class="row">
+                <% } %>
+              <% } %>
             </div>
           </div>
           <div class="col-sm-4">
