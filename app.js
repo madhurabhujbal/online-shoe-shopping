@@ -15,7 +15,8 @@ app.use(session({secret: "its a secret!",
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.get("/", function (req, res) {
-    res.render ("home.ejs", {shoeList});
+    let user = req.session.username;
+    res.render ("home.ejs", {shoeList, user});
 } );
 
 app.get("/sign-in", function (req, res) {
