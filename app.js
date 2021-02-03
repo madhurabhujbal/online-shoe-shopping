@@ -20,10 +20,10 @@ app.get("/", function (req, res) {
 
 app.get("/sign-in", function (req, res) {
     let user = req.session.user;
-    if(!user) {
-        res.render ("signin.ejs");
-    } else {
+    if(user) {
         res.send(`You are already logged in as ${user}`);
+    } else {
+        res.render ("signin.ejs");
     }
 } );
 
