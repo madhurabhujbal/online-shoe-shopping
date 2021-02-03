@@ -32,7 +32,7 @@ app.post("/sign-in", function (req, res) {
     let user = req.body.user;
     // TODO: authenticate user here
     req.session.username = user;
-    res.send(`Signed in successfully with username ${req.body.user}`);
+    res.render ("home.ejs", {shoeList, user});
 } );
 
 app.get("/logout", function(req, res) {
