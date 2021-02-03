@@ -34,9 +34,11 @@
             </div>
           </div>
           <div class="col-sm-4">
-            <h3>Shoe Details for : <%=shoeInfo.id%></h3>
-            <h3>Price : <%=shoeInfo.price%></h3>
-            <h3>Name : <%=shoeInfo.name%></h3>
+            <div class="shoe-details">
+              <h3>Shoe Details for : <%=shoeInfo.id%></h3>
+              <h3>Price : <%=shoeInfo.price%></h3>
+              <h3>Name : <%=shoeInfo.name%></h3>
+            </div>
 
             <div class="row">
               <% for(let i = 0; i < shoeInfo.sizes.length; i++) { %>

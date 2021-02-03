@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-h3 {
-  margin-left: 2em;
-}
-
 .carousel-inner {
   width: 100%;
 }
@@ -67,7 +63,15 @@ h3 {
   }
 }
 
+.shoe-details {
+  justify-content: center;
+  font-family: "Times New Roman", Times, serif;
+}
+
 .btn {
   outline: #000;
   color: #000;
 }
+
+/* .shoe-details {
+} */
