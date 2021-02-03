@@ -39,22 +39,12 @@
             <h3>Name : <%=shoeInfo.name%></h3>
 
             <div class="row">
+              <% for(let i = 0; i < shoeInfo.sizes.length; i++) { %>
               <div class="col-sm-3 p-1">
-                <input type="radio" class="btn-check" name="options-outlined" id="secondary-outlined1" autocomplete="off">
-                <label class="btn btn-outline-secondary w-100" for="secondary-outlined1">UK 5</label>
+                <input type="radio" class="btn-check" name="options-outlined" id="secondary-outlined<%=i%>" autocomplete="off" <%=shoeInfo.sizes[i].isAvail ? "" : "disabled"%>>
+                <label class="btn btn-outline-secondary w-100" for="secondary-outlined<%=i%>"><%=shoeInfo.sizes[i].size%></label>
               </div>
-              <div class="col-sm-3 p-1">
-                <input type="radio" class="btn-check" name="options-outlined" id="secondary-outlined2" autocomplete="off" disabled>
-                <label class="btn btn-outline-secondary w-100" for="secondary-outlined2">UK 6</label>
-              </div>
-              <div class="col-sm-3 p-1">
-                <input type="radio" class="btn-check" name="options-outlined" id="secondary-outlined3" autocomplete="off">
-                <label class="btn btn-outline-secondary w-100" for="secondary-outlined3">UK 7</label>
-              </div>
-              <div class="col-sm-3 p-1">
-                <input type="radio" class="btn-check" name="options-outlined" id="secondary-outlined4" autocomplete="off">
-                <label class="btn btn-outline-secondary w-100" for="secondary-outlined4">UK 8</label>
-              </div>
+              <% } %>
             </div>
 
           </div>
