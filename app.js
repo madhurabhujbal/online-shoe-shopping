@@ -16,7 +16,11 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.get("/", function (req, res) {
     let user = req.session.username;
-    res.render ("home.ejs", {shoeList, user});
+    let cartSize = req.session.cartSize;
+    if (!cartSize) {
+        cartSize = "";
+    }
+    res.render ("home.ejs", {shoeList, user, cartSize});
 } );
 
 app.get("/sign-in", function (req, res) {
@@ -32,12 +36,16 @@ app.post("/sign-in", function (req, res) {
     let user = req.body.user;
     // TODO: authenticate user here
     req.session.username = user;
-    res.render ("home.ejs", {shoeList, user});
+    let cartSize = req.session.cartSize;
+    if (!cartSize) {
+        cartSize = 0;
+    }
+    res.render ("home.ejs", {shoeList, user, cartSize});
 } );
 
 app.get("/logout", function(req, res) {
     req.session.destroy();
-    res.render("home.ejs", {shoeList});
+    res.render("home.ejs", {shoeList, cartSize : 0});
 });
 
 app.get ("/details/:id", function (req, res) {
@@ -51,15 +59,18 @@ app.get ("/details/:id", function (req, res) {
     }
 });
 
+app.get('/cart', function (req, res){
+    res.render("cart.ejs");
+});
+
 app.get("/addtocart/:id", function (req, res) {
     //Check if user is logged in before adding item to cart
-    let user = req.session.username;
-    if(user) {
-        res.render("cart.ejs");
-    }
-    else {
-        res.send("Please signin to your account");
-    }
+    // let user = req.session.username;
+    // if(!user) {
+    //    res.send("Please signin to your account");
+    //     return;
+    // }
+
     //Update cart size as item is added
     let shoeId = req.params.id;
     let cartSize = req.session.cartSize;
