@@ -38,6 +38,7 @@
               <h3>Shoe Details for : <%=shoeInfo.id%></h3>
               <h3>Price : <%=shoeInfo.price%></h3>
               <h3>Name : <%=shoeInfo.name%></h3>
+              <h4>Curr Cart Size: <%=cartSize%></h4>
             </div>
 
             <div class="row">
@@ -50,7 +51,7 @@
             </div>
 
             <div class="row">
-                <button type="button" class="btn btn-warning btn-lg" onclick="location.href='/cart'">Add to Cart</button>
+                <a href="/addtocart/<%=shoeInfo.id%>"><button type="button" class="btn btn-warning btn-lg">Add to Cart</button></a>
             </div>
 
           </div>
