@@ -72,3 +72,12 @@ a.active {
   color: #000;
   font-size: larger;
 }
+
+.badge {
+  position: relative;
+  top: -20px;
+  left: -25px;
+  color: #000;
+  border-radius: 60%;
+  background: #ffc107;
+}

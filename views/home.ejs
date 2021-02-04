@@ -25,7 +25,13 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
               </form>
               <div class="navbar">
-                <a class="active" href="#"><i class="fa fa-fw fa-shopping-cart"></i></a>
+                <span id="group">
+                  <!-- <button type="button" class="btn btn-info" style="margin:5px; background: none;">
+                   <i class="fa fa-fw fa-shopping-cart"></i>
+                  </button> -->
+                  <a class="active" href="/cart"><i class="fa fa-fw fa-shopping-cart"></i></a>
+                  <span class="badge badge-light"><%=cartSize%></span>
+                </span>
               </div>
               <ul class="navbar-nav">
                 <% if(typeof user !== 'undefined') { %>
