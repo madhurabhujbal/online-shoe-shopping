@@ -36,7 +36,13 @@ app.post("/sign-in", function (req, res) {
 } );
 
 app.get("/cart", function (req, res) {
-    res.render("cart.ejs");
+    let user = req.session.username;
+    if(user) {
+        res.render("cart.ejs");
+    }
+    else {
+        res.send("Please signin to your account");
+    }
 } );
 
 // app.post("/cart", function (req, res) {
