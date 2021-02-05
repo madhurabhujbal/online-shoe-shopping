@@ -71,6 +71,7 @@
 a.active {
   color: #000;
   font-size: larger;
+  font: bold;
 }
 
 .badge {
@@ -80,4 +81,8 @@ a.active {
   color: #000;
   border-radius: 60%;
   background: #ffc107;
+}
+
+ul.sign-in {
+  font-weight: bold;
 }
