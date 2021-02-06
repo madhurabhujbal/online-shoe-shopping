@@ -83,6 +83,37 @@ a.active {
   background: #ffc107;
 }
 
-ul.sign-in {
+.nav-link,
+.navbar-nav,
+.navbar-brand {
+  color: #000;
   font-weight: bold;
+}
+
+.nav-link:hover,
+.navbar-nav:hover,
+.navbar-brand:hover {
+  color: rgb(88, 88, 88);
+}
+
+.sign-in-block {
+  opacity: 1;
+  padding: 2%;
+  transform: translateX(-200px);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 30%;
+  max-width: 480px;
+  min-height: 400px;
+  background: rgb(170, 170, 170);
+  transition: 0.4s ease-out;
+}
+
+.sign-in-fields {
+  margin-bottom: 30px;
+}
+
+label {
+  padding: 0.5em;
 }
