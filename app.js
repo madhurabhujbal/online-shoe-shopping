@@ -54,7 +54,7 @@ app.get("/logout", function(req, res) {
 app.get ("/details/:id", function (req, res) {
     let shoeId = req.params.id;
     let cartSize = req.session.cartSize;
-    let shoeInfo = getShoeInfo(shoeId);
+    let shoeInfo = shoeService.getShoeInfo(shoeId);
     if(shoeInfo) {
         res.render ("details.ejs", {shoeInfo, cartSize});
     } else {
@@ -83,25 +83,13 @@ app.get("/addtocart/:id", function (req, res) {
         cartSize= 1;
     }
     req.session.cartSize = cartSize;
-    let shoeInfo = getShoeInfo(shoeId);
+    let shoeInfo = shoeService.getShoeInfo(shoeId);
     if(shoeInfo) {
         res.render ("details.ejs", {shoeInfo, cartSize});
     } else {
         res.send(`Details for shoe id ${shoeId} not found`);
     }
 } );
-
-function getShoeInfo(shoeId) {
-    let shoeInfo = null;
-    for(let catagory in shoeList) {
-        shoeList[catagory].forEach(shoe => {
-            if(shoe.id == shoeId) {
-                shoeInfo = shoe;
-            }
-        });
-    };
-    return shoeInfo;
-}
 
 app.get("/url", (req, res) => {
     res.json(shoeList);
