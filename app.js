@@ -1,10 +1,13 @@
 const express = require("express");
 const path = require('path');
-const {shoeList} = require('./data');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+
+const shoeService = require('./services/shoeService');
 const app = express();
+
+const shoeList = shoeService.getShoeList();
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
