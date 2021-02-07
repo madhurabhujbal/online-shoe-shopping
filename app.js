@@ -7,8 +7,6 @@ const session = require('express-session');
 const shoeService = require('./services/shoeService');
 const app = express();
 
-const shoeList = shoeService.getShoeList();
-
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(cookieParser());
@@ -23,6 +21,7 @@ app.get("/", function (req, res) {
     if (!cartSize) {
         cartSize = "";
     }
+    const shoeList = shoeService.getShoeList();
     res.render ("home.ejs", {shoeList, user, cartSize});
 } );
 
@@ -43,11 +42,13 @@ app.post("/sign-in", function (req, res) {
     if (!cartSize) {
         cartSize = 0;
     }
+    const shoeList = shoeService.getShoeList();
     res.render ("home.ejs", {shoeList, user, cartSize});
 } );
 
 app.get("/logout", function(req, res) {
     req.session.destroy();
+    const shoeList = shoeService.getShoeList();
     res.render("home.ejs", {shoeList, cartSize : 0});
 });
 
@@ -91,7 +92,8 @@ app.get("/addtocart/:id", function (req, res) {
     }
 } );
 
-app.get("/url", (req, res) => {
+app.get("/api/shoelist", (req, res) => {
+    const shoeList = shoeService.getShoeList();
     res.json(shoeList);
 });
 
