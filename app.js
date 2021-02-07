@@ -28,9 +28,12 @@ app.get("/", function (req, res) {
 app.get("/sign-in", function (req, res) {
     let user = req.session.username;
     if(user) {
-        res.send(`You are already logged in as ${user}`);
+        let message = {type: 'success', data: `You are already logged in as ${user}`};
+        let cartSize = req.session.cartSize;
+        const shoeList = shoeService.getShoeList();
+        res.render ("home.ejs", {shoeList, user, cartSize, message});
     } else {
-        res.render ("signin.ejs");
+        res.render("signin.ejs");
     }
 } );
 
@@ -68,13 +71,6 @@ app.get('/cart', function (req, res){
 });
 
 app.get("/addtocart/:id", function (req, res) {
-    //Check if user is logged in before adding item to cart
-    // let user = req.session.username;
-    // if(!user) {
-    //    res.send("Please signin to your account");
-    //     return;
-    // }
-
     //Update cart size as item is added
     let shoeId = req.params.id;
     let cartSize = req.session.cartSize;
@@ -90,7 +86,7 @@ app.get("/addtocart/:id", function (req, res) {
     } else {
         res.send(`Details for shoe id ${shoeId} not found`);
     }
-} );
+});
 
 app.get("/api/shoelist", (req, res) => {
     const shoeList = shoeService.getShoeList();
