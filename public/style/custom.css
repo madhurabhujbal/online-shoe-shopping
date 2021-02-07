@@ -14,6 +14,19 @@
   object-fit: cover;
 }
 
+.nav-link,
+.navbar-nav,
+.navbar-brand {
+  color: #000;
+  font-weight: bold;
+}
+
+.nav-link:hover,
+.navbar-nav:hover,
+.navbar-brand:hover {
+  color: rgb(88, 88, 88);
+}
+
 .container {
   width: 80%;
 }
@@ -81,19 +94,6 @@ a.active {
   color: #000;
   border-radius: 60%;
   background: #ffc107;
-}
-
-.nav-link,
-.navbar-nav,
-.navbar-brand {
-  color: #000;
-  font-weight: bold;
-}
-
-.nav-link:hover,
-.navbar-nav:hover,
-.navbar-brand:hover {
-  color: rgb(88, 88, 88);
 }
 
 .sign-in-block {
