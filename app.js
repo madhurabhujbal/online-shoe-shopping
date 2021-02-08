@@ -82,17 +82,19 @@ app.get("/addtocart/:id", function (req, res) {
     //Update cart size as item is added
     let shoeId = req.params.id;
     let cartSize = req.session.cartSize;
-    if(cartSize) {
-        cartSize++;
-    } else {
-        cartSize= 1;
-    }
-    req.session.cartSize = cartSize;
     let shoeInfo = shoeService.getShoeInfo(shoeId);
     if(shoeInfo) {
+        if(cartSize) {
+            cartSize++;
+        } else {
+            cartSize= 1;
+        }
+        req.session.cartSize = cartSize;
         res.render ("details.ejs", {shoeInfo, cartSize});
     } else {
-        res.send(`Details for shoe id ${shoeId} not found`);
+        let sessionData = getCurrentSessionData(req);
+        sessionData['message'] = {type: 'erorr', data : `Details for shoe id ${shoeId} not found`};
+        res.render ("home.ejs", sessionData);
     }
 });
 
