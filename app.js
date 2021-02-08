@@ -7,6 +7,7 @@ const session = require('express-session');
 const shoeService = require('./services/shoeService');
 const userService = require('./services/userService');
 const orderService = require('./services/orderService');
+const cartService = require('./services/cartService');
 const app = express();
 
 app.use(bodyParser.json()); // support json encoded bodies
@@ -30,7 +31,7 @@ function getCurrentSessionData(req) {
 
 app.get("/", function (req, res) {
     let sessionData = getCurrentSessionData(req);
-    res.render ("home.ejs", sessionData);
+    res.render("home.ejs", sessionData);
 } );
 
 app.get("/sign-in", function (req, res) {
@@ -39,7 +40,7 @@ app.get("/sign-in", function (req, res) {
     if(username) {
         let message = {type: 'success', data: `You are already logged in as ${username}`};
         sessionData['message'] = message;
-        res.render ("home.ejs", sessionData);
+        res.render("home.ejs", sessionData);
     } else {
         res.render("signin.ejs", sessionData);
     }
@@ -55,7 +56,7 @@ app.post("/sign-in", function (req, res) {
         req.session.name = userInfo.name;
         sessionData['username'] = userInfo.username;
         sessionData['name'] = userInfo.name;
-        res.render ("home.ejs", sessionData);
+        res.render("home.ejs", sessionData);
     } else {
         sessionData['message'] = {type: 'error', data: 'Invalid username or password!'};
         res.render("signin.ejs", sessionData);
@@ -74,10 +75,10 @@ app.get ("/details/:id", function (req, res) {
     let shoeInfo = shoeService.getShoeInfo(shoeId);
     if(shoeInfo) {
         sessionData['shoeInfo'] = shoeInfo;
-        res.render ("details.ejs", sessionData);
+        res.render("details.ejs", sessionData);
     } else {
         sessionData['message'] = {type: 'erorr', data : `Details for shoe id ${shoeId} not found`};
-        res.render ("home.ejs", sessionData);
+        res.render("home.ejs", sessionData);
     }
 });
 
@@ -87,21 +88,18 @@ app.get('/cart', function (req, res){
 
 app.post("/addtocart/", function (req, res) {
     let shoeId = req.body.shoeId;
+    let shoeSize = req.body.shoeSize;
     let shoeInfo = shoeService.getShoeInfo(shoeId);
     if(shoeInfo) {
-        //Update cart size as item is added
-        let cartSize = req.session.cartSize;
-        if(cartSize) {
-            cartSize++;
-        } else {
-            cartSize= 1;
-        }
-        req.session.cartSize = cartSize;
-        res.render ("details.ejs", {shoeInfo, cartSize});
+        cartService.addItemToCart(req, shoeInfo);
+        console.log("Adding to cart : ", shoeSize);
+        let sessionData = getCurrentSessionData(req);
+        sessionData['shoeInfo'] = shoeInfo;
+        res.render("details.ejs", sessionData);
     } else {
         let sessionData = getCurrentSessionData(req);
         sessionData['message'] = {type: 'error', data : `Details for shoe id ${shoeId} not found`};
-        res.render ("home.ejs", sessionData);
+        res.render("home.ejs", sessionData);
     }
 });
 

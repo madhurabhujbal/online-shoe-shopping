@@ -36,21 +36,21 @@
               <small>Ref id:<%=shoeInfo.id%></small>
             </div>
 
-            <div class="row">
-              <% for(let i = 0; i < shoeInfo.sizes.length; i++) { %>
-              <div class="col-sm-3 p-1">
-                <input type="radio" class="btn-check" name="options-outlined" id="secondary-outlined<%=i%>" autocomplete="off" <%=shoeInfo.sizes[i].isAvail ? "" : "disabled"%> onclick="enableCart()">
-                <label class="btn btn-outline-secondary w-100" for="secondary-outlined<%=i%>"><%=shoeInfo.sizes[i].size%></label>
+            <form action="/addtocart" method="POST">
+              <div class="row">
+                <% for(let i = 0; i < shoeInfo.sizes.length; i++) { %>
+                <div class="col-sm-3 p-1">
+                  <input type="radio" class="btn-check" name="shoeSize" id="secondary-outlined<%=i%>" value="<%=shoeInfo.sizes[i].size%>" autocomplete="off" <%=shoeInfo.sizes[i].isAvail ? "" : "disabled"%> onclick="enableCart()">
+                  <label class="btn btn-outline-secondary w-100" for="secondary-outlined<%=i%>"><%=shoeInfo.sizes[i].size%></label>
+                </div>
+                <% } %>
               </div>
-              <% } %>
-            </div>
 
-            <div class="row">
-              <form action="/addtocart" method="POST">
-                <input type="hidden" name="shoeId" value="<%=shoeInfo.id%>"/>
-                <button id="addtocart" type="submit" class="btn btn-warning btn-lg" disabled="true">Add to Cart</button>
-              </form>
-            </div>
+              <div class="row">
+                  <input type="hidden" name="shoeId" value="<%=shoeInfo.id%>"/>
+                  <button id="addtocart" type="submit" class="btn btn-warning btn-lg" disabled="true">Add to Cart</button>
+              </div\\\\\\\\s>
+            </form>
 
           </div>
         </div>
