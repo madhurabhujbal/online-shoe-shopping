@@ -21,9 +21,10 @@
             <h3 class="m-4 fw-bold">Your Cart is empty!!!</h3>
         <%} else {%>
             <h3 class="m-4 fw-bold">Your Cart</h3>
-            <b class="m-4">Details</b>
-        <%} %>
-        <!-- Order details -->
+            <%} %>
+          <!-- Order details -->
+          <% if(!isEmpty) {%>
+        <b class="m-4">Details</b>
         <div class="list-group m-4">
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-dark">
             <div class="d-flex w-100 justify-content-between">
@@ -33,6 +34,7 @@
               <small>Price</small>
            </div>
           </a>
+          <% } %>
           <% let total = 0;
              for (item of cart ) {
                 total += parseFloat(item.price);

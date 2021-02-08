@@ -107,7 +107,18 @@ app.post("/addtocart/", function (req, res) {
     }
 });
 
-app.get('/orders/', (req, res) => {
+app.post("/checkout", function(req, res) {
+    username = req.session.username;
+    let sessionData = getCurrentSessionData(req);
+    if(!username) {
+        //User hasn't logged-in. Redirect to login
+        let message = {type: 'warning', data: `Please sign-in and then click  the cart to proceed to checkout!`};
+        sessionData['message'] = message;
+        res.render("signin.ejs", sessionData);
+    }
+})
+
+app.get('/orders/', function (req, res) {
     let username = req.session.username;
     let sessionData = getCurrentSessionData(req);
     if(username) {
