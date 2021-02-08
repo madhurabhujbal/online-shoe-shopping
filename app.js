@@ -16,14 +16,19 @@ app.use(session({secret: "its a secret!",
                  resave: false}));
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.get("/", function (req, res) {
+function getCurrentSessionData(req) {
     let user = req.session.username;
     let cartSize = req.session.cartSize;
     if (!cartSize) {
         cartSize = "";
     }
     const shoeList = shoeService.getShoeList();
-    res.render ("home.ejs", {shoeList, user, cartSize});
+    return {shoeList, user, cartSize};
+}
+
+app.get("/", function (req, res) {
+    let sessionData = getCurrentSessionData(req);
+    res.render ("home.ejs", sessionData);
 } );
 
 app.get("/sign-in", function (req, res) {
@@ -37,16 +42,6 @@ app.get("/sign-in", function (req, res) {
         res.render("signin.ejs", sessionData);
     }
 } );
-
-function getCurrentSessionData(req) {
-    let user = req.session.username;
-    let cartSize = req.session.cartSize;
-    if (!cartSize) {
-        cartSize = 0;
-    }
-    const shoeList = shoeService.getShoeList();
-    return {shoeList, user, cartSize};
-}
 
 app.post("/sign-in", function (req, res) {
     let {user, password} = req.body;
