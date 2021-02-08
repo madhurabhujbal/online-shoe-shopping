@@ -40,18 +40,26 @@
             <div class="row">
               <% for(let i = 0; i < shoeInfo.sizes.length; i++) { %>
               <div class="col-sm-3 p-1">
-                <input type="radio" class="btn-check" name="options-outlined" id="secondary-outlined<%=i%>" autocomplete="off" <%=shoeInfo.sizes[i].isAvail ? "" : "disabled"%>>
+                <input type="radio" class="btn-check" name="options-outlined" id="secondary-outlined<%=i%>" autocomplete="off" <%=shoeInfo.sizes[i].isAvail ? "" : "disabled"%> onclick="enableCart()">
                 <label class="btn btn-outline-secondary w-100" for="secondary-outlined<%=i%>"><%=shoeInfo.sizes[i].size%></label>
               </div>
               <% } %>
             </div>
 
             <div class="row">
-                <a href="/addtocart/<%=shoeInfo.id%>"><button type="button" class="btn btn-warning btn-lg">Add to Cart</button></a>
+              <form action="/addtocart/<%=shoeInfo.id%>">
+                <button id="addtocart" type="submit" class="btn btn-warning btn-lg" disabled="true">Add to Cart</button>
+              </form>
             </div>
 
           </div>
         </div>
+        <script>
+          function enableCart() {
+            let addToCartButton = document.getElementById('addtocart');
+            addToCartButton.disabled = false;
+          }
+        </script>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
