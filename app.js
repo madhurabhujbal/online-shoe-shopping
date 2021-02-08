@@ -58,7 +58,7 @@ app.post("/sign-in", function (req, res) {
 app.get("/logout", function(req, res) {
     req.session.destroy();
     const shoeList = shoeService.getShoeList();
-    res.render("home.ejs", {shoeList, cartSize : 0});
+    res.render("home.ejs", {shoeList, cartSize : ""});
 });
 
 app.get ("/details/:id", function (req, res) {
