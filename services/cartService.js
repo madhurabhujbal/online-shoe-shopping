@@ -5,7 +5,7 @@ function addItemToCart(req, item, shoeSize, count) {
     }
     if(!count) {
         //Assume count 1 when not specified
-        count = 0;
+        count = 1;
     }
     cart.push({id: item.id, price: item.price, shoeSize, count});
     req.session.cart = cart;

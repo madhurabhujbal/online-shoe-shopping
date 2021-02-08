@@ -4,7 +4,7 @@ let shoeList = {
         {
             id : 1001,
             name: 'Sports Shoe',
-            price: '£42.99',
+            price: '42.99',
             image: '/images/men/blueShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}, {size: 'UK 9', isAvail : true}, {size: 'UK 10', isAvail : false}],
@@ -13,7 +13,7 @@ let shoeList = {
         {
             id : 1002,
             name: 'Running Shoe',
-            price: '£52.99',
+            price: '52.99',
             image: '/images/men/greenShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
@@ -22,7 +22,7 @@ let shoeList = {
         {
             id : 1003,
             name: 'Badminton Shoe',
-            price: '£99.99',
+            price: '99.99',
             image: '/images/men/pinkShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
@@ -31,7 +31,7 @@ let shoeList = {
         {
             id : 1004,
             name: 'Casual Shoe',
-            price: '£79.99',
+            price: '79.99',
             image: '/images/men/lightPinkShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
@@ -42,7 +42,7 @@ let shoeList = {
         {
             id : 2001,
             name: 'Sports Shoe',
-            price: '£42.99',
+            price: '42.99',
             image: '/images/women/blueShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
@@ -51,7 +51,7 @@ let shoeList = {
         {
             id : 2002,
             name: 'Running Shoe',
-            price: '£52.99',
+            price: '52.99',
             image: '/images/women/greenShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
@@ -60,7 +60,7 @@ let shoeList = {
         {
             id : 2003,
             name: 'Badminton Shoe',
-            price: '£99.99',
+            price: '99.99',
             image: '/images/women/pinkShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
@@ -69,7 +69,7 @@ let shoeList = {
         {
             id : 2004,
             name: 'Casual Shoe',
-            price: '£79.99',
+            price: '79.99',
             image: '/images/women/lightPinkShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
@@ -81,7 +81,7 @@ let shoeList = {
         {
             id : 3001,
             name: 'Sports Shoe',
-            price: '£42.99',
+            price: '42.99',
             image: '/images/kids/blueShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
@@ -90,7 +90,7 @@ let shoeList = {
         {
             id : 3002,
             name: 'Running Shoe',
-            price: '£52.99',
+            price: '52.99',
             image: '/images/kids/greenShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
@@ -99,7 +99,7 @@ let shoeList = {
         {
             id : 3003,
             name: 'Badminton Shoe',
-            price: '£99.99',
+            price: '99.99',
             image: '/images/kids/pinkShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
@@ -108,7 +108,7 @@ let shoeList = {
         {
             id : 3004,
             name: 'Casual Shoe',
-            price: '£79.99',
+            price: '79.99',
             image: '/images/kids/lightPinkShoe.png',
             shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
