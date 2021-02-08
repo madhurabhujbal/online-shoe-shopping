@@ -14,19 +14,6 @@
   object-fit: cover;
 }
 
-.nav-link,
-.navbar-nav,
-.navbar-brand {
-  color: #000;
-  font-weight: bold;
-}
-
-.nav-link:hover,
-.navbar-nav:hover,
-.navbar-brand:hover {
-  color: rgb(88, 88, 88);
-}
-
 .container {
   width: 80%;
 }
@@ -79,12 +66,6 @@
 .shoe-details {
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-a.active {
-  color: #000;
-  font-size: larger;
-  font: bold;
 }
 
 .badge {
