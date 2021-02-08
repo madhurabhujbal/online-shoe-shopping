@@ -68,7 +68,9 @@ app.get ("/details/:id", function (req, res) {
     if(shoeInfo) {
         res.render ("details.ejs", {shoeInfo, cartSize});
     } else {
-        res.send(`Details for shoe id ${shoeId} not found`);
+        let sessionData = getCurrentSessionData(req);
+        sessionData['message'] = {type: 'erorr', data : `Details for shoe id ${shoeId} not found`};
+        res.render ("home.ejs", sessionData);
     }
 });
 
