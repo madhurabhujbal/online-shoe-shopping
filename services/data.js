@@ -122,19 +122,19 @@ users = [
         username: 'test',
         name: 'Alice',
         password: 'test',
-        cart: {}
+        orders: []
     },
     {
         username: 'user1',
         name: 'Joe',
         password: 'password1',
-        cart: {}
+        orders: []
     },
     {
         username: 'user2',
         name: 'Bob',
         password: 'password2',
-        cart: {}
+        orders: []
     },
 ];
 

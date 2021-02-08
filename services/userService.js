@@ -16,4 +16,8 @@ function getUser(username) {
     return;
 }
 
-module.exports = {validateUser, getUser};
+function getAllUsers() {
+    return users;
+}
+
+module.exports = {validateUser, getUser, getAllUsers};
