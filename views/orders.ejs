@@ -14,7 +14,7 @@
     <body>
       <%- include ('./common/navbar.ejs') -%>
       <%- include ('./common/message.ejs') -%>
-        <h3>Your Orders</h3>
+        <h3 class="m-4 fw-bold">Your Orders</h3>
         <!-- Order details -->
         <div class="list-group">
           <% for (let order of orders) {
@@ -31,9 +31,28 @@
               <h5 class="mb-1"><%=order.id%></h5>
               <small><%=order.date%></small>
             </div>
-            <% if(order.status == "Delievered") { %>
-            <button type="button" class="btn btn-outline-danger float-right">Return Order</button>
-            <% } %>
+
+            <div>
+              <h5 class="mb-1">Details</h5>
+              <small>Status: <%=order.status%></small>
+              <ul class="list-group">
+                <% for(let item of order.items) {%>
+                  <li class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between">
+                      <small>ID: <%=item.id%></small>
+                      <small>Quantity: <%=item.count%></small>
+                      <small>Size: <%=item.size%></small>
+                      <small>Cost: <%=item.cost%></small>
+                    </div>
+                  </li>
+                <% } %>
+              </ul>
+            </div>
+            <div class="m-2">
+              <% if(order.status == "Delievered") { %>
+                <button type="button" class="btn btn-outline-danger float-right">Return Order</button>
+                <% } %>
+            </div>
           </a>
           <% } %>
         </div>
