@@ -123,14 +123,14 @@ users = [
         name: 'Alice',
         password: 'test',
         orders: [{id:'ord-001', items : [
-                            {id: 1001, size : 'UK 5', count: 1, cost: 129},
-                            {id: 2001, size : 'UK 6', count: 1, cost: 89}
+                            {id: 1001, size : 'UK 5', count: 1, price: 129},
+                            {id: 2001, size : 'UK 6', count: 1, price: 89}
                         ],
                         status : "Delievered",
                         date : '26-Dec-2020'
                     },
                 {id:'ord-005', items : [
-                            {id: 1002, size : 'UK 7', count: 1, cost: 65}
+                            {id: 1002, size : 'UK 7', count: 1, price: 65}
                             ],
                             status : "Ordered",
                             date : '31-Jan-2021'}

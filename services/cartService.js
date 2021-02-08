@@ -7,18 +7,22 @@ function getCartSize(req) {
     return cartSize;
 }
 
-function addItemToCart(req, item) {
+function addItemToCart(req, item, shoeSize, count) {
     let cart = req.session.cart;
     if(!cart) {
         cart = [];
     }
-    cart.push(item);
+    if(!count) {
+        //Assume count 1 when not specified
+        count = 1;
+    }
+    cart.push({item: item.id, price: item.price, shoeSize, count});
     req.session.cart = cart;
-    updateCartSize(req);
+    updateCartSize(req, count);
 }
 
-function updateCartSize(req) {
-    req.session.cartSize = getCartSize(req);
+function updateCartSize(req, count) {
+    req.session.cartSize = getCartSize(req) + count;
 }
 
 module.exports = {getCartSize, addItemToCart};

@@ -8,6 +8,7 @@ const shoeService = require('./services/shoeService');
 const userService = require('./services/userService');
 const orderService = require('./services/orderService');
 const cartService = require('./services/cartService');
+
 const app = express();
 
 app.use(bodyParser.json()); // support json encoded bodies
@@ -25,8 +26,9 @@ function getCurrentSessionData(req) {
     if (!cartSize) {
         cartSize = "";
     }
+    let cart = req.session.cart;
     const shoeList = shoeService.getShoeList();
-    return {shoeList, name, username, cartSize};
+    return {shoeList, name, username, cart, cartSize};
 }
 
 app.get("/", function (req, res) {
@@ -89,10 +91,10 @@ app.get('/cart', function (req, res){
 app.post("/addtocart/", function (req, res) {
     let shoeId = req.body.shoeId;
     let shoeSize = req.body.shoeSize;
+    let count = req.body.count;
     let shoeInfo = shoeService.getShoeInfo(shoeId);
     if(shoeInfo) {
-        cartService.addItemToCart(req, shoeInfo);
-        console.log("Adding to cart : ", shoeSize);
+        cartService.addItemToCart(req, shoeInfo, shoeSize, count);
         let sessionData = getCurrentSessionData(req);
         sessionData['shoeInfo'] = shoeInfo;
         res.render("details.ejs", sessionData);
