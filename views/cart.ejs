@@ -14,7 +14,7 @@
     <body>
       <%- include ('./common/navbar.ejs') -%>
       <%- include ('./common/message.ejs') -%>
-        <% if(cartSize || cartSize === "" || cartSize == 0) { %>
+        <% if(!cart || cart.length == 0) { %>
             <h3 class="m-4 fw-bold">Your Cart is empty!!!</h3>
         <%} else {%>
             <h3 class="m-4 fw-bold">Your Cart</h3>

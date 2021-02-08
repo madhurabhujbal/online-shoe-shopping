@@ -33,7 +33,7 @@
             <li class="nav-item">
               <a href="/cart" class="nav-link navbar-link-2">
                   <i class="fa fa-fw fa-shopping-cart"></i>
-                  <span class="badge badge-pill"><%=cartSize%></span>
+                  <span class="badge badge-pill"><%=cart.length != 0 ? cart.length : ""%></span>
               </a>
             </li>
         </ul>
