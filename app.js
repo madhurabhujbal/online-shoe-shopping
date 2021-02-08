@@ -46,17 +46,16 @@ function getCurrentSessionData(req) {
     }
     const shoeList = shoeService.getShoeList();
     return {shoeList, user, cartSize};
-
 }
+
 app.post("/sign-in", function (req, res) {
-    let username = req.body.user;
-    let password = req.body.password;
-    let user = userService.validateUser(username, password);
+    let {user, password} = req.body;
+    let userInfo = userService.validateUser(user, password);
     let sessionData = getCurrentSessionData(req);
-    if(user) {
+    if(userInfo) {
         //User is authenticated
-        req.session.username = user.name;
-        sessionData['user'] = user.name;
+        req.session.username = userInfo.name;
+        sessionData['user'] = userInfo.name;
         res.render ("home.ejs", sessionData);
     } else {
         sessionData['message'] = {type: 'error', data: 'Invalid username or password!'};
