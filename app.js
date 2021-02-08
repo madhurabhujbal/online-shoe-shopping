@@ -70,12 +70,12 @@ app.get("/logout", function(req, res) {
 
 app.get ("/details/:id", function (req, res) {
     let shoeId = req.params.id;
-    let cartSize = req.session.cartSize;
+    let sessionData = getCurrentSessionData(req);
     let shoeInfo = shoeService.getShoeInfo(shoeId);
     if(shoeInfo) {
-        res.render ("details.ejs", {shoeInfo, cartSize});
+        sessionData['shoeInfo'] = shoeInfo;
+        res.render ("details.ejs", sessionData);
     } else {
-        let sessionData = getCurrentSessionData(req);
         sessionData['message'] = {type: 'erorr', data : `Details for shoe id ${shoeId} not found`};
         res.render ("home.ejs", sessionData);
     }
