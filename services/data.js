@@ -117,4 +117,24 @@ let shoeList = {
     ]
 }
 
-exports.shoeList = shoeList;
+users = [{
+        username: 'test',
+        name: 'Alice',
+        password: 'test',
+        cart: {}
+    },
+    {
+        username: 'user1',
+        name: 'Joe',
+        password: 'password1',
+        cart: {}
+    },
+    {
+        username: 'user2',
+        name: 'Bob',
+        password: 'password2',
+        cart: {}
+    },
+];
+
+module.exports={shoeList, users};
