@@ -117,7 +117,8 @@ let shoeList = {
     ]
 }
 
-users = [{
+users = [
+    {
         username: 'test',
         name: 'Alice',
         password: 'test',

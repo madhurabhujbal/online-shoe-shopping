@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 const shoeService = require('./services/shoeService');
+const userService = require('./services/userService');
 const app = express();
 
 app.use(bodyParser.json()); // support json encoded bodies
@@ -27,13 +28,13 @@ app.get("/", function (req, res) {
 
 app.get("/sign-in", function (req, res) {
     let user = req.session.username;
+    let sessionData = getCurrentSessionData(req);
     if(user) {
         let message = {type: 'success', data: `You are already logged in as ${user}`};
-        sessionData = getCurrentSessionData(req);
         sessionData['message'] = message;
         res.render ("home.ejs", sessionData);
     } else {
-        res.render("signin.ejs");
+        res.render("signin.ejs", sessionData);
     }
 } );
 
@@ -48,11 +49,19 @@ function getCurrentSessionData(req) {
 
 }
 app.post("/sign-in", function (req, res) {
-    // TODO: authenticate user here
-    let user = req.body.user;
-    req.session.username = user;
+    let username = req.body.user;
+    let password = req.body.password;
+    let user = userService.validateUser(username, password);
     let sessionData = getCurrentSessionData(req);
-    res.render ("home.ejs", sessionData);
+    if(user) {
+        //User is authenticated
+        req.session.username = user.name;
+        sessionData['user'] = user.name;
+        res.render ("home.ejs", sessionData);
+    } else {
+        sessionData['message'] = {type: 'error', data: 'Invalid username or password!'};
+        res.render("signin.ejs", sessionData);
+    }
 } );
 
 app.get("/logout", function(req, res) {
@@ -93,7 +102,7 @@ app.post("/addtocart/", function (req, res) {
         res.render ("details.ejs", {shoeInfo, cartSize});
     } else {
         let sessionData = getCurrentSessionData(req);
-        sessionData['message'] = {type: 'erorr', data : `Details for shoe id ${shoeId} not found`};
+        sessionData['message'] = {type: 'error', data : `Details for shoe id ${shoeId} not found`};
         res.render ("home.ejs", sessionData);
     }
 });
