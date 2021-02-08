@@ -29,24 +29,30 @@ app.get("/sign-in", function (req, res) {
     let user = req.session.username;
     if(user) {
         let message = {type: 'success', data: `You are already logged in as ${user}`};
-        let cartSize = req.session.cartSize;
-        const shoeList = shoeService.getShoeList();
-        res.render ("home.ejs", {shoeList, user, cartSize, message});
+        sessionData = getCurrentSessionData(req);
+        sessionData['message'] = message;
+        res.render ("home.ejs", sessionData);
     } else {
         res.render("signin.ejs");
     }
 } );
 
-app.post("/sign-in", function (req, res) {
-    let user = req.body.user;
-    // TODO: authenticate user here
-    req.session.username = user;
+function getCurrentSessionData(req) {
+    let user = req.session.username;
     let cartSize = req.session.cartSize;
     if (!cartSize) {
         cartSize = 0;
     }
     const shoeList = shoeService.getShoeList();
-    res.render ("home.ejs", {shoeList, user, cartSize});
+    return {shoeList, user, cartSize};
+
+}
+app.post("/sign-in", function (req, res) {
+    // TODO: authenticate user here
+    let user = req.body.user;
+    req.session.username = user;
+    let sessionData = getCurrentSessionData(req);
+    res.render ("home.ejs", sessionData);
 } );
 
 app.get("/logout", function(req, res) {
