@@ -14,32 +14,28 @@
     <body>
       <%- include ('./common/navbar.ejs') -%>
       <%- include ('./common/message.ejs') -%>
+        <h3>Your Orders</h3>
         <!-- Order details -->
         <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+          <% for (let order of orders) {
+              let orderClass = "list-group-item-secondary";
+              switch(order.status) {
+                case 'Delievered' : orderClass =  "list-group-item-success"; break;
+                case 'Ordered'    : orderClass =  "ist-group-item-warning"; break;
+                case 'Cancelled'  : orderClass =  "list-group-item-light"; break;
+                case 'Returned'   : orderClass =  "list-group-item-info"; break;
+              }
+            %>
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start <%=orderClass%>">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small>3 days ago</small>
+              <h5 class="mb-1"><%=order.id%></h5>
+              <small><%=order.date%></small>
             </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small>Donec id elit non mi porta.</small>
+            <% if(order.status == "Delievered") { %>
+            <button type="button" class="btn btn-outline-danger float-right">Return Order</button>
+            <% } %>
           </a>
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small class="text-muted">3 days ago</small>
-            </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small class="text-muted">Donec id elit non mi porta.</small>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small class="text-muted">3 days ago</small>
-            </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small class="text-muted">Donec id elit non mi porta.</small>
-          </a>
+          <% } %>
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
