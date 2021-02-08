@@ -47,7 +47,8 @@
             </div>
 
             <div class="row">
-              <form action="/addtocart/<%=shoeInfo.id%>">
+              <form action="/addtocart" method="POST">
+                <input type="hidden" name="shoeId" value="<%=shoeInfo.id%>"/>
                 <button id="addtocart" type="submit" class="btn btn-warning btn-lg" disabled="true">Add to Cart</button>
               </form>
             </div>

@@ -78,12 +78,12 @@ app.get('/cart', function (req, res){
     res.render("cart.ejs");
 });
 
-app.get("/addtocart/:id", function (req, res) {
-    //Update cart size as item is added
-    let shoeId = req.params.id;
-    let cartSize = req.session.cartSize;
+app.post("/addtocart/", function (req, res) {
+    let shoeId = req.body.shoeId;
     let shoeInfo = shoeService.getShoeInfo(shoeId);
     if(shoeInfo) {
+        //Update cart size as item is added
+        let cartSize = req.session.cartSize;
         if(cartSize) {
             cartSize++;
         } else {
