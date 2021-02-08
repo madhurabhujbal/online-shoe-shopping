@@ -25,17 +25,25 @@
         <%} %>
         <!-- Order details -->
         <div class="list-group m-4">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-dark">
+            <div class="d-flex w-100 justify-content-between">
+              <small>ID</small>
+              <small>Quantity</small>
+              <small>Size</small>
+              <small>Price</small>
+           </div>
+          </a>
           <% let total = 0;
-             for (let i = 0; i < cart.length; i++) {
-                let item = cart[i];
+             for (item of cart ) {
                 total += parseFloat(item.price);
            %>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start <%= i % 2 == 0 ? 'list-group-item-dark' : 'list-group-item-light'  %>">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start 'list-group-item-light'  %>">
             <div class="d-flex w-100 justify-content-between">
-                <small>ID: <%=item.id%></small>
-                <small>Quantity: <%=item.count%></small>
-                <small>Size: <%=item.shoeSize%></small>
-                <small>Price: £ <%=item.price%></small>
+                <small><%=item.id%></small>
+                <!-- TODO: Avoid using spaces for uniform column look-->
+                <small>&nbsp;&nbsp;&nbsp;&nbsp;<%=item.count%></small>
+                <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=item.shoeSize%></small>
+                <small>£<%=item.price%></small>
             </div>
           </a>
           <% } %>
