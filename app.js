@@ -6,6 +6,7 @@ const session = require('express-session');
 
 const shoeService = require('./services/shoeService');
 const userService = require('./services/userService');
+const orderService = require('./services/orderService');
 const app = express();
 
 app.use(bodyParser.json()); // support json encoded bodies
@@ -17,13 +18,14 @@ app.use(session({secret: "its a secret!",
 app.use(express.static(path.join(__dirname, '/public')));
 
 function getCurrentSessionData(req) {
-    let user = req.session.username;
+    let username = req.session.username;
+    let name = req.session.name;
     let cartSize = req.session.cartSize;
     if (!cartSize) {
         cartSize = "";
     }
     const shoeList = shoeService.getShoeList();
-    return {shoeList, user, cartSize};
+    return {shoeList, name, username, cartSize};
 }
 
 app.get("/", function (req, res) {
@@ -32,10 +34,10 @@ app.get("/", function (req, res) {
 } );
 
 app.get("/sign-in", function (req, res) {
-    let user = req.session.username;
+    let username = req.session.username;
     let sessionData = getCurrentSessionData(req);
-    if(user) {
-        let message = {type: 'success', data: `You are already logged in as ${user}`};
+    if(username) {
+        let message = {type: 'success', data: `You are already logged in as ${username}`};
         sessionData['message'] = message;
         res.render ("home.ejs", sessionData);
     } else {
@@ -44,13 +46,15 @@ app.get("/sign-in", function (req, res) {
 } );
 
 app.post("/sign-in", function (req, res) {
-    let {user, password} = req.body;
-    let userInfo = userService.validateUser(user, password);
+    let {username, password} = req.body;
+    let userInfo = userService.validateUser(username, password);
     let sessionData = getCurrentSessionData(req);
     if(userInfo) {
         //User is authenticated
-        req.session.username = userInfo.name;
-        sessionData['user'] = userInfo.name;
+        req.session.username = userInfo.username;
+        req.session.name = userInfo.name;
+        sessionData['username'] = userInfo.username;
+        sessionData['name'] = userInfo.name;
         res.render ("home.ejs", sessionData);
     } else {
         sessionData['message'] = {type: 'error', data: 'Invalid username or password!'};
@@ -101,24 +105,19 @@ app.post("/addtocart/", function (req, res) {
     }
 });
 
-app.get('/orders/:id', (req, res) => {
-    let orders = [{id:'ord-001', items : [
-                    {id: 1001, size : 'UK 5', count: 1, cost: 129},
-                    {id: 2001, size : 'UK 6', count: 1, cost: 89}
-                ],
-                        status : "Delievered",
-                        date : '26-Dec-2020'
-                },
-                {id:'ord-005', items : [
-                    {id: 1002, size : 'UK 7', count: 1, cost: 65}
-                    ],
-                    status : "Ordered",
-                    date : '31-Jan-2021'}
-                ];
-
+app.get('/orders/', (req, res) => {
+    let username = req.session.username;
     let sessionData = getCurrentSessionData(req);
-    sessionData['orders'] = orders;
-    res.render("orders.ejs", sessionData);
+    if(username) {
+        //retrieve the orders for the current user
+        let orders = orderService.getUserOrders(username);
+        sessionData['orders'] = orders;
+        res.render("orders.ejs", sessionData);
+    } else {
+        let message = {type: 'warning', data: `Please sign-in to see your orders!`};
+        sessionData['message'] = message;
+        res.render("signin.ejs", sessionData);
+    }
 });
 
 app.get("/api/shoelist", (req, res) => {
