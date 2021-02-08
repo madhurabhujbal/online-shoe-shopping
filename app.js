@@ -23,10 +23,11 @@ function getCurrentSessionData(req) {
     let username = req.session.username;
     let name = req.session.name;
     let cartSize = req.session.cartSize;
+    let cart = req.session.cart;
     if (!cartSize) {
         cartSize = "";
+        cart = [];
     }
-    let cart = req.session.cart;
     const shoeList = shoeService.getShoeList();
     return {shoeList, name, username, cart, cartSize};
 }
@@ -79,13 +80,15 @@ app.get ("/details/:id", function (req, res) {
         sessionData['shoeInfo'] = shoeInfo;
         res.render("details.ejs", sessionData);
     } else {
+        let sessionData = getCurrentSessionData(req);
         sessionData['message'] = {type: 'erorr', data : `Details for shoe id ${shoeId} not found`};
         res.render("home.ejs", sessionData);
     }
 });
 
 app.get('/cart', function (req, res){
-    res.render("cart.ejs");
+    let sessionData = getCurrentSessionData(req);
+    res.render("cart.ejs", sessionData);
 });
 
 app.post("/addtocart/", function (req, res) {
@@ -97,6 +100,7 @@ app.post("/addtocart/", function (req, res) {
         cartService.addItemToCart(req, shoeInfo, shoeSize, count);
         let sessionData = getCurrentSessionData(req);
         sessionData['shoeInfo'] = shoeInfo;
+        sessionData['message'] = {type: 'success', data : `The ${showInfo.name} added to cart successfully!`};
         res.render("details.ejs", sessionData);
     } else {
         let sessionData = getCurrentSessionData(req);
