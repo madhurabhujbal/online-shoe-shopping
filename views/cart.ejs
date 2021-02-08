@@ -26,10 +26,11 @@
         <!-- Order details -->
         <div class="list-group m-4">
           <% let total = 0;
-            for (let item of cart) {
+             for (let i = 0; i < cart.length; i++) {
+                let item = cart[i];
                 total += parseFloat(item.price);
-            %>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+           %>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start <%= i % 2 == 0 ? 'list-group-item-dark' : 'list-group-item-light'  %>">
             <div class="d-flex w-100 justify-content-between">
                 <small>ID: <%=item.id%></small>
                 <small>Quantity: <%=item.count%></small>
