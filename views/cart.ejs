@@ -18,23 +18,18 @@
             <h3 class="m-4 fw-bold">Your Cart is empty!!!</h3>
         <%} else {%>
             <h3 class="m-4 fw-bold">Your Cart</h3>
+            <h4>Details</h4>
         <%} %>
         <!-- Order details -->
         <div class="list-group">
-          <% for (let items of cart) {
+          <% for (let item of cart) {
             %>
-            <small>Details</small>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start <%=orderClass%>">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <small>ID: <%=item.id%></small>
                 <small>Quantity: <%=item.count%></small>
                 <small>Size: <%=item.size%></small>
                 <small>Price: <%=item.price%></small>
-            </div>
-            <div class="m-2">
-              <% if(order.status == "Delievered") { %>
-                <button type="button" class="btn btn-outline-danger float-right">Return Order</button>
-                <% } %>
             </div>
           </a>
           <% } %>

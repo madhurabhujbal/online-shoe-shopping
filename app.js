@@ -100,7 +100,7 @@ app.post("/addtocart/", function (req, res) {
         cartService.addItemToCart(req, shoeInfo, shoeSize, count);
         let sessionData = getCurrentSessionData(req);
         sessionData['shoeInfo'] = shoeInfo;
-        sessionData['message'] = {type: 'success', data : `The ${showInfo.name} added to cart successfully!`};
+        sessionData['message'] = {type: 'success', data : `The ${shoeInfo.name} added to cart successfully!`};
         res.render("details.ejs", sessionData);
     } else {
         let sessionData = getCurrentSessionData(req);
