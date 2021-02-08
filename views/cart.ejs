@@ -21,10 +21,10 @@
             <h3 class="m-4 fw-bold">Your Cart is empty!!!</h3>
         <%} else {%>
             <h3 class="m-4 fw-bold">Your Cart</h3>
-            <b class="m-2">Details</b>
+            <b class="m-4">Details</b>
         <%} %>
         <!-- Order details -->
-        <div class="list-group m-2">
+        <div class="list-group m-4">
           <% let total = 0;
             for (let item of cart) {
                 total += parseFloat(item.price);
@@ -40,7 +40,10 @@
           <% } %>
         </div>
         <% if(!isEmpty) { %>
+          <form action="/checkout" method="POST">
             <p class="text-end fs-3 m-4 fw-bold">Total: £<%=total%></p>
+            <button type="submit" id="checkout" class="btn btn-dark btn-lg m-4 float-end">Checkout Cart</button>
+          </form>
         <%} %>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

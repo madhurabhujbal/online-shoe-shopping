@@ -48,7 +48,10 @@
 
               <div class="row">
                   <input type="hidden" name="shoeId" value="<%=shoeInfo.id%>"/>
-                  <button id="addtocart" type="submit" class="btn btn-warning btn-lg" disabled="true">Add to Cart</button>
+                  <button id="addtocart" type="submit" class="btn btn-warning btn-lg m-2" disabled="true">Add to Cart</button>
+                  <% if(cart.length > 0) { %>
+                    <a id="checkout" href="/cart" class="btn btn-dark btn-lg m-2">Checkout Cart</a>
+                  <% } %>
               </div>
             </form>
 
