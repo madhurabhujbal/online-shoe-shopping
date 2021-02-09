@@ -1,4 +1,5 @@
-let assert = require('assert');
+let {assert} = require('chai');
+
 let userService = require('../services/userService');
 
 describe('While validating user', function () {
@@ -62,5 +63,16 @@ describe('While retrieving user info', function () {
         it('no user should be retrieved', function () {
                 assert.strictEqual(userInfo, undefined);
         });
+    });
+});
+
+describe('While retrieving all the users ', function () {
+    let users = userService.getAllUsers();
+    it('list of users should be retrieved', function () {
+        assert.notStrictEqual(users, undefined);
+    });
+
+    it('size of list should be equal to the number of users', function () {
+        assert.isTrue(users.length == 3);
     });
 });
