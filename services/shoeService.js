@@ -12,7 +12,15 @@ function getShoeInfo(shoeId) {
     return shoeInfo;
 }
 
+function getShoeByCategory(searchCategory) {
+    for (const [category, itemList] of Object.entries(shoeList)) {
+        if(searchCategory == category) {
+            return itemList;
+        }
+    };
+}
+
 function getShoeList() {
     return shoeList;
 }
-module.exports = {getShoeInfo, getShoeList};
+module.exports = {getShoeInfo, getShoeByCategory, getShoeList};

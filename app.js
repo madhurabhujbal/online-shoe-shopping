@@ -138,6 +138,20 @@ app.get('/orders/', function (req, res) {
     }
 });
 
+app.get('/category/:type', function(req, res) {
+    let category = req.params.type;
+    let sessionData = getCurrentSessionData(req);
+    let itemList = shoeService.getShoeByCategory(category);
+    if(itemList) {
+        sessionData['itemList'] = itemList;
+        res.render("category.ejs", sessionData);
+    } else {
+        let sessionData = getCurrentSessionData(req);
+        sessionData['message'] = {type: 'erorr', data : `Selected category '${category}' not found`};
+        res.render("home.ejs", sessionData);
+    }
+});
+
 app.get("/api/shoelist", (req, res) => {
     const shoeList = shoeService.getShoeList();
     res.json(shoeList);

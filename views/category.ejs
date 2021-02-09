@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="/style/custom.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Golden shoe</title>
+    </head>
+    <body>
+      <%- include ('./common/navbar.ejs') -%>
+      <%- include ('./common/message.ejs') -%>
+
+      <!-- Shoe cards  -->
+        <div class="row">
+            <% for (const item of itemList) { %>
+            <div class="col-sm-3">
+            <div class="card">
+              <div class="image-wrap">
+                <img class="card-img-top image-zoom" src="<%=item.image%>" alt="Card image cap"/>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Shoe</h5>
+                <p class="card-text">Best shoe in the world!</p>
+                <a href="/details/<%=item.id%>" class="btn btn-dark">Details</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
