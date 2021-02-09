@@ -30,12 +30,21 @@ let shoeList = {
         },
         {
             id : 1004,
-            name: 'Casual Shoe',
-            price: '79.99',
-            image: '/images/men/lightPinkShoe.png',
-            shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
-            sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
-            description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
+            name: 'Barbour',
+            price: '99.99',
+            image: '/images/men/shoe4/shoe.jpg',
+            shoeviews: ['/images/men/shoe4/shoe.jpg', '/images/men/shoe4/view1.jpg', '/images/men/shoe4/view2.jpg', '/images/men/shoe4/view3.jpg'],
+            sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}, {size: 'UK 9', isAvail : false}, {size: 'UK 10', isAvail : true}, {size: 'UK 11', isAvail : true}],
+            description: "Stern leather boat shoes"
+        },
+        {
+            id : 1005,
+            name: 'Christian Louboutin',
+            price: '759.99',
+            image: '/images/men/shoe5/shoe.jpg',
+            shoeviews: ['/images/men/shoe5/shoe.jpg', '/images/men/shoe5/view1.jpg', '/images/men/shoe5/view2.jpg', '/images/men/shoe5/view3.jpg', '/images/men/shoe5/view4.jpg'],
+            sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}, {size: 'UK 9', isAvail : true}, {size: 'UK 10', isAvail : false}],
+            description: "Greggo flat calf p/tresse plonge ds/vv/g"
         }
     ],
     women: [
