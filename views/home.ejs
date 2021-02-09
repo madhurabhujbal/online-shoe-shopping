@@ -40,7 +40,8 @@
       <% for (const [category, itemList] of Object.entries(shoeList)) { %>
         <p class="m-4 fw-bold fs-3"><%=category.toUpperCase()%></p>
         <div class="row">
-            <% for (const item of itemList) { %>
+            <% for (let i = 0; i < itemList.length && i < 4; i++) {
+              let item = itemList[i]; %>
             <div class="col-sm-3">
             <div class="card">
               <div class="image-wrap">
