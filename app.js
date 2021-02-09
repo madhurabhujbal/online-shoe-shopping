@@ -79,7 +79,7 @@ app.get ("/details/:id", function (req, res) {
         res.render("details.ejs", sessionData);
     } else {
         let sessionData = getCurrentSessionData(req);
-        sessionData['message'] = {type: 'erorr', data : `Details for shoe id ${shoeId} not found`};
+        sessionData['message'] = {type: 'error', data : `Details for shoe id ${shoeId} not found`};
         res.render("home.ejs", sessionData);
     }
 });
@@ -147,7 +147,7 @@ app.get('/category/:type', function(req, res) {
         res.render("category.ejs", sessionData);
     } else {
         let sessionData = getCurrentSessionData(req);
-        sessionData['message'] = {type: 'erorr', data : `Selected category '${category}' not found`};
+        sessionData['message'] = {type: 'error', data : `Selected category '${category}' not found`};
         res.render("home.ejs", sessionData);
     }
 });
