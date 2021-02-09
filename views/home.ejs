@@ -14,10 +14,10 @@
       <%- include ('./common/navbar.ejs') -%>
       <%- include ('./common/message.ejs') -%>
         <!-- Adding carousel to the website -->
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide m-4" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="/images/carousel_images/spiky-shoes.jpg" class="d-block w-100 carousel-img" alt="slide1">
+              <a href="/details/1001"><img src="/images/carousel_images/spiky-shoes.jpg" class="d-block w-100 carousel-img" alt="slide1"></a>
             </div>
             <div class="carousel-item">
               <img src="/images/carousel_images/sale2.png" class="d-block w-100 carousel-img" alt="slide2">
@@ -38,7 +38,7 @@
 
       <!-- Shoe cards  -->
       <% for (const [category, itemList] of Object.entries(shoeList)) { %>
-        <h3><%=category%></h3>
+        <p class="m-4 fw-bold fs-3"><%=category.toUpperCase()%></p>
         <div class="row">
             <% for (const item of itemList) { %>
             <div class="col-sm-3">
