@@ -21,14 +21,14 @@
               let orderClass = "list-group-item-secondary";
               switch(order.status) {
                 case 'Delievered' : orderClass =  "list-group-item-success"; break;
-                case 'Ordered'    : orderClass =  "ist-group-item-warning"; break;
+                case 'Ordered'    : orderClass =  "list-group-item-dark"; break;
                 case 'Cancelled'  : orderClass =  "list-group-item-light"; break;
-                case 'Returned'   : orderClass =  "list-group-item-info"; break;
+                case 'Returned'   : orderClass =  "list-group-item-danger"; break;
               }
             %>
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start <%=orderClass%>">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><%=order.id%></h5>
+              <small>Order #: <b><%=order.id%></b></small>
               <small><%=order.date%></small>
             </div>
 

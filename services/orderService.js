@@ -1,3 +1,4 @@
+const uuid = require('uuid');
 const userService = require('./userService');
 
 function getUserOrders(username) {
@@ -5,9 +6,22 @@ function getUserOrders(username) {
     return user.orders;
 }
 
-function saveOrder(username, order) {
-    let orders = getUserOrders(username);
-    orders.push(order);
+function getTimeStamp() {
+    let d = new Date();
+    let dateTime = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    return dateTime;
+}
+
+function checkoutCart(sessionData) {
+    let cart = sessionData['cart'];
+    if(cart.length == 0) {
+        //Do nothing if accidentally cart is empty
+        return;
+    }
+
+    let newOrder = {id : uuid.v4(), items: cart, status: "Ordered", date: getTimeStamp()};
+    let orders = getUserOrders(sessionData['username']);
+    orders.unshift(newOrder);
 }
 
 function getOrderDetails(orderId) {
@@ -21,4 +35,4 @@ function getOrderDetails(orderId) {
     }
     return;
 }
-module.exports = {getUserOrders, saveOrder, getOrderDetails};
+module.exports = {getUserOrders, checkoutCart, getOrderDetails};

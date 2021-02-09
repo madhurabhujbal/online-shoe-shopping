@@ -40,7 +40,7 @@
               <div class="row">
                 <% for(let i = 0; i < shoeInfo.sizes.length; i++) { %>
                 <div class="col-sm-3 p-1">
-                  <input type="radio" class="btn-check" name="shoeSize" id="secondary-outlined<%=i%>" value="<%=shoeInfo.sizes[i].size%>" autocomplete="off" <%=shoeInfo.sizes[i].isAvail ? "" : "disabled"%> onclick="enableCart()">
+                  <input type="radio" class="btn-check" name="size" id="secondary-outlined<%=i%>" value="<%=shoeInfo.sizes[i].size%>" autocomplete="off" <%=shoeInfo.sizes[i].isAvail ? "" : "disabled"%> onclick="enableCart()">
                   <label class="btn btn-outline-secondary w-100" for="secondary-outlined<%=i%>"><%=shoeInfo.sizes[i].size%></label>
                 </div>
                 <% } %>

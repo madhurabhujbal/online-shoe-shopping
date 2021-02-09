@@ -91,11 +91,11 @@ app.get('/cart', function (req, res){
 
 app.post("/addtocart/", function (req, res) {
     let shoeId = req.body.shoeId;
-    let shoeSize = req.body.shoeSize;
+    let size = req.body.size;
     let count = req.body.count;
     let shoeInfo = shoeService.getShoeInfo(shoeId);
     if(shoeInfo) {
-        cartService.addItemToCart(req, shoeInfo, shoeSize, count);
+        cartService.addItemToCart(req, shoeInfo, size, count);
         let sessionData = getCurrentSessionData(req);
         sessionData['shoeInfo'] = shoeInfo;
         sessionData['message'] = {type: 'success', data : `The ${shoeInfo.name} added to cart successfully!`};
@@ -108,13 +108,18 @@ app.post("/addtocart/", function (req, res) {
 });
 
 app.post("/checkout", function(req, res) {
-    username = req.session.username;
     let sessionData = getCurrentSessionData(req);
-    if(!username) {
+    if(!sessionData['username']) {
         //User hasn't logged-in. Redirect to login
         let message = {type: 'warning', data: `Please sign-in and then click  the cart to proceed to checkout!`};
         sessionData['message'] = message;
         res.render("signin.ejs", sessionData);
+    } else {
+        //Add order to the user's account
+        orderService.checkoutCart(sessionData);
+        let orders = orderService.getUserOrders(sessionData['username']);
+        sessionData['orders'] = orders;
+        res.render("orders.ejs", sessionData);
     }
 })
 
