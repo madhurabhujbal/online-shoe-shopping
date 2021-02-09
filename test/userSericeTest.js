@@ -6,6 +6,18 @@ describe('While retrieving user info', function () {
         let userInfo = userService.validateUser('test', 'test');
         it('info of the user should be be retrieved', function () {
                 assert.notStrictEqual(userInfo, undefined);
-            });
         });
+
+        it('info should contain username', function () {
+            assert.notStrictEqual(userInfo.username, undefined);
+        });
+
+        it('info should contain name', function () {
+            assert.notStrictEqual(userInfo.name, undefined);
+        });
+
+        it('info should contain previous orders', function () {
+            assert.notStrictEqual(userInfo.orders, undefined);
+        });
+    });
 });
