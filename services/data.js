@@ -116,40 +116,58 @@ let shoeList = {
     kids: [
         {
             id : 3001,
-            name: 'Sports Shoe',
-            price: '42.99',
-            image: '/images/kids/blueShoe.png',
-            shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
-            sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
-            description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
+            name: 'BURBERRY',
+            price: '242.99',
+            image: '/images/kids/shoe1/shoe.jpg',
+            shoeviews: ['/images/kids/shoe1/shoe.jpg', '/images/kids/shoe1/view1.jpg', '/images/kids/shoe1/view2.jpg'],
+            sizes: [{ size: '2-4yrs', isAvail : true},  {size: '5-9yrs', isAvail : true}, {size: '10-12yrs', isAvail : false}],
+            description: "Union woven low top trainers"
         },
         {
             id : 3002,
-            name: 'Running Shoe',
+            name: 'ADIDAS',
             price: '52.99',
-            image: '/images/kids/greenShoe.png',
-            shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
-            sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
-            description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
+            image: '/images/kids/shoe2/shoe.jpg',
+            shoeviews: ['/images/kids/shoe2/shoe.jpg', '/images/kids/shoe2/view1.jpg', '/images/kids/shoe2/view2.jpg'],
+            sizes: [{ size: '2-4yrs', isAvail : true},  {size: '5-9yrs', isAvail : false}, {size: '10-12yrs', isAvail : true}],
+            description: "U_Path Run mesh trainers"
         },
         {
             id : 3003,
-            name: 'Badminton Shoe',
-            price: '99.99',
-            image: '/images/kids/pinkShoe.png',
-            shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
-            sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
-            description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
+            name: 'UGG',
+            price: '65.00',
+            image: '/images/kids/shoe3/shoe.jpg',
+            shoeviews: ['/images/kids/shoe3/shoe.jpg', '/images/kids/shoe3/view1.jpg', '/images/kids/shoe3/view2.jpg', '/images/kids/shoe3/view3.jpg'],
+            sizes: [{ size: '4-12months', isAvail : true}, { size: '12-24months', isAvail : false}, { size: '24-36months', isAvail : true}],
+            description: "Neumel wool-lined suede boots"
         },
         {
             id : 3004,
-            name: 'Casual Shoe',
-            price: '79.99',
-            image: '/images/kids/lightPinkShoe.png',
-            shoeviews: ['/images/men/side1.jpg', '/images/men/side2.jpg', '/images/men/side3.jpg'],
-            sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
-            description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
-        }
+            name: 'CLARKS',
+            price: '36.00',
+            image: '/images/kids/shoe4/shoe.jpg',
+            shoeviews: ['/images/kids/shoe4/shoe.jpg', '/images/kids/shoe4/view1.jpg', '/images/kids/shoe4/view2.jpg'],
+            sizes: [{ size: '1-2yrs', isAvail : true}, { size: '2-4yrs', isAvail : true}, { size: '4-6yrs', isAvail : true}],
+            description: "Crown Jump leather Mary Jane shoes"
+        },
+        {
+            id : 3005,
+            name: 'CLARKS',
+            price: '28.00',
+            image: '/images/kids/shoe5/shoe.jpg',
+            shoeviews: ['/images/kids/shoe5/shoe.jpg', '/images/kids/shoe5/view1.jpg', '/images/kids/shoe5/view2.jpg'],
+            sizes: [{ size: '1-2yrs', isAvail : false}, { size: '2-4yrs', isAvail : true}, { size: '4-6yrs', isAvail : false}],
+            description: "Tiny Dusk leather trainers"
+        },
+        {
+            id : 3006,
+            name: 'ADIDAS',
+            price: '50.00',
+            image: '/images/kids/shoe6/shoe.jpg',
+            shoeviews: ['/images/kids/shoe6/shoe.jpg', '/images/kids/shoe6/view1.jpg', '/images/kids/shoe6/view2.jpg'],
+            sizes: [{ size: '7-8yrs', isAvail : true}, { size: '9-10yrs', isAvail : true}, { size: '10-12yrs', isAvail : false}],
+            description: "Retroset mesh trainers"
+        },
     ]
 }
 
