@@ -4,7 +4,7 @@ function addItemToCart(req, item, size, count) {
         cart = [];
     }
     if(!count) {
-        //Assume count 1 when not specified
+        //TODO: To be able to select quantity of same item throuh
         count = 1;
     }
     cart.push({id: item.id, price: item.price, size, count});

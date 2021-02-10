@@ -26,20 +26,20 @@ function getCurrentSessionData(req) {
     if (!cart) {
         cart = [];
     }
-    const shoeList = shoeService.getShoeList();
-    return {shoeList, name, username, cart};
+    return {name, username, cart};
 }
 
 app.get("/", function (req, res) {
     let sessionData = getCurrentSessionData(req);
+    sessionData['shoeList'] = shoeService.getShoeList();
     res.render("home.ejs", sessionData);
 } );
 
 app.get("/sign-in", function (req, res) {
-    let username = req.session.username;
     let sessionData = getCurrentSessionData(req);
-    if(username) {
-        let message = {type: 'success', data: `You are already logged in as ${username}`};
+    if(sessionData['username']) {
+        let message = {type: 'success', data: `You are already logged in as ${sessionData['username']}`};
+        sessionData['shoeList'] = shoeService.getShoeList();
         sessionData['message'] = message;
         res.render("home.ejs", sessionData);
     } else {
@@ -57,6 +57,7 @@ app.post("/sign-in", function (req, res) {
         req.session.name = userInfo.name;
         sessionData['username'] = userInfo.username;
         sessionData['name'] = userInfo.name;
+        sessionData['shoeList'] = shoeService.getShoeList();
         res.render("home.ejs", sessionData);
     } else {
         sessionData['message'] = {type: 'error', data: 'Invalid username or password!'};
@@ -66,7 +67,7 @@ app.post("/sign-in", function (req, res) {
 
 app.get("/logout", function(req, res) {
     req.session.destroy();
-    const shoeList = shoeService.getShoeList();
+    let shoeList = shoeService.getShoeList();
     res.render("home.ejs", {shoeList, cart: []});
 });
 
@@ -78,7 +79,7 @@ app.get ("/details/:id", function (req, res) {
         sessionData['shoeInfo'] = shoeInfo;
         res.render("details.ejs", sessionData);
     } else {
-        let sessionData = getCurrentSessionData(req);
+        sessionData['shoeList'] = shoeService.getShoeList();
         sessionData['message'] = {type: 'error', data : `Details for shoe id ${shoeId} not found`};
         res.render("home.ejs", sessionData);
     }
@@ -102,6 +103,7 @@ app.post("/addtocart/", function (req, res) {
         res.render("details.ejs", sessionData);
     } else {
         let sessionData = getCurrentSessionData(req);
+        sessionData['shoeList'] = shoeService.getShoeList();
         sessionData['message'] = {type: 'error', data : `Details for shoe id ${shoeId} not found`};
         res.render("home.ejs", sessionData);
     }
@@ -111,7 +113,7 @@ app.post("/checkout", function(req, res) {
     let sessionData = getCurrentSessionData(req);
     if(!sessionData['username']) {
         //User hasn't logged-in. Redirect to login
-        let message = {type: 'warning', data: `Please sign-in and then click  the cart to proceed to checkout!`};
+        let message = {type: 'warning', data: `Please sign-in and then click the cart to proceed to checkout!`};
         sessionData['message'] = message;
         res.render("signin.ejs", sessionData);
     } else {
@@ -119,6 +121,9 @@ app.post("/checkout", function(req, res) {
         orderService.checkoutCart(sessionData);
         let orders = orderService.getUserOrders(sessionData['username']);
         sessionData['orders'] = orders;
+        //empty cart now
+        req.session.cart = [];
+        sessionData['cart'] = [];
         res.render("orders.ejs", sessionData);
     }
 })
@@ -146,14 +151,14 @@ app.get('/category/:type', function(req, res) {
         sessionData['itemList'] = itemList;
         res.render("category.ejs", sessionData);
     } else {
-        let sessionData = getCurrentSessionData(req);
+        sessionData['shoeList'] = shoeService.getShoeList();
         sessionData['message'] = {type: 'error', data : `Selected category '${category}' not found`};
         res.render("home.ejs", sessionData);
     }
 });
 
 app.get("/api/shoelist", (req, res) => {
-    const shoeList = shoeService.getShoeList();
+    let shoeList = shoeService.getShoeList();
     res.json(shoeList);
 });
 

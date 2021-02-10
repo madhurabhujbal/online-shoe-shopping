@@ -23,8 +23,6 @@ function checkoutCart(sessionData) {
     let orders = getUserOrders(sessionData['username']);
     //create order
     orders.unshift(newOrder);
-    //empty cart now
-    sessionData['cart'] = [];
 }
 
 function getOrderDetails(orderId) {
