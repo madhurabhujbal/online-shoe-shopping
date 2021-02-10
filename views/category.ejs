@@ -15,20 +15,25 @@
       <%- include ('./common/message.ejs') -%>
 
       <!-- Shoe cards  -->
-        <div class="row">
-            <% for (const item of itemList) { %>
+        <div class="row m-4">
+            <% for (let i = 0; i < itemList.length; i++) {
+                let item = itemList[i]; %>
             <div class="col-sm-3">
             <div class="card">
               <div class="image-wrap">
                 <img class="card-img-top image-zoom" src="<%=item.image%>" alt="Card image cap"/>
               </div>
               <div class="card-body">
-                <h5 class="card-title">Shoe</h5>
+                <h5 class="card-title"><%=item.name%></h5>
                 <p class="card-text">Best shoe in the world!</p>
                 <a href="/details/<%=item.id%>" class="btn btn-dark">Details</a>
               </div>
             </div>
           </div>
+          <% if(i % 4 == 3) { %>
+            </div>
+            <div class="row m-4">
+            <% } %>
           <% } %>
         </div>
         <!-- Optional JavaScript -->
