@@ -21,7 +21,10 @@ function checkoutCart(sessionData) {
 
     let newOrder = {id : uuid.v4(), items: cart, status: "Ordered", date: getTimeStamp()};
     let orders = getUserOrders(sessionData['username']);
+    //create order
     orders.unshift(newOrder);
+    //empty cart now
+    sessionData['cart'] = [];
 }
 
 function getOrderDetails(orderId) {
