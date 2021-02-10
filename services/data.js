@@ -2,39 +2,39 @@ let shoeList = {
     men: [
         {
             id : 1001,
-            name: 'Sports Shoe',
-            price: '42.99',
+            name: 'CHRISTIAN LOUBOUTIN',
+            price: '835.99',
             image: '/images/men/shoe1/shoe.jpg',
             shoeviews: ['/images/men/shoe1/shoe.jpg', '/images/men/shoe1/view1.jpg', '/images/men/shoe1/view2.jpg', '/images/men/shoe1/view3.jpg', '/images/men/shoe1/view4.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}, {size: 'UK 9', isAvail : true}, {size: 'UK 10', isAvail : false}],
-            description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
+            description: "Vida viva flat crosta suede clf gg versi"
         },
         {
             id : 1002,
-            name: 'Running Shoe',
-            price: '52.99',
+            name: 'GUCCI',
+            price: '550.99',
             image: '/images/men/shoe2/shoe.jpg',
             shoeviews: ['/images/men/shoe2/shoe.jpg', '/images/men/shoe2/view1.jpg', '/images/men/shoe2/view2.jpg', '/images/men/shoe2/view3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
-            description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
+            description: "Tennis 1977 canvas high-top trainers"
         },
         {
             id : 1003,
-            name: 'Badminton Shoe',
-            price: '99.99',
+            name: 'VALENTINO GARAVANI',
+            price: '499.99',
             image: '/images/men/shoe3/shoe.jpg',
             shoeviews: ['/images/men/shoe3/shoe.jpg', '/images/men/shoe3/view1.jpg', '/images/men/shoe3/view2.jpg', '/images/men/shoe3/view3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}],
-            description: "Step into a new realm of Air with the Nike Air Max Zephyr. It brings the soft cushioning of visible Air to the upper, adding a modern twist to the shoe's futuristic design."
+            description: "Giggies canvas low-top trainers"
         },
         {
             id : 1004,
-            name: 'Barbour',
-            price: '99.99',
+            name: 'MALLET',
+            price: '164.99',
             image: '/images/men/shoe4/shoe.jpg',
             shoeviews: ['/images/men/shoe4/shoe.jpg', '/images/men/shoe4/view1.jpg', '/images/men/shoe4/view2.jpg', '/images/men/shoe4/view3.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}, {size: 'UK 9', isAvail : false}, {size: 'UK 10', isAvail : true}, {size: 'UK 11', isAvail : true}],
-            description: "Stern leather boat shoes"
+            description: "Diver leather and mesh trainers"
         },
         {
             id : 1005,
@@ -44,7 +44,16 @@ let shoeList = {
             shoeviews: ['/images/men/shoe5/shoe.jpg', '/images/men/shoe5/view1.jpg', '/images/men/shoe5/view2.jpg', '/images/men/shoe5/view3.jpg', '/images/men/shoe5/view4.jpg'],
             sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}, {size: 'UK 9', isAvail : true}, {size: 'UK 10', isAvail : false}],
             description: "Greggo flat calf p/tresse plonge ds/vv/g"
-        }
+        },
+        {
+            id : 1006,
+            name: 'Barbour',
+            price: '99.99',
+            image: '/images/men/shoe6/shoe.jpg',
+            shoeviews: ['/images/men/shoe6/shoe.jpg', '/images/men/shoe6/view1.jpg', '/images/men/shoe6/view2.jpg', '/images/men/shoe6/view3.jpg'],
+            sizes: [{ size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : true}, {size: 'UK 9', isAvail : false}, {size: 'UK 10', isAvail : true}, {size: 'UK 11', isAvail : true}],
+            description: "Stern leather boat shoes"
+        },
     ],
     women: [
         {
@@ -58,13 +67,14 @@ let shoeList = {
         },
         {
             id : 2002,
-            name: 'CHRISTIAN LOUBOUTIN',
-            price: '785.00',
+            name: 'The Row',
+            price: '450.00',
             image: '/images/women/shoe2/shoe.jpg',
-            shoeviews: ['/images/women/shoe2/shoe.jpg', '/images/women/shoe2/view1.jpg', '/images/women/shoe2/view2.jpg', '/images/women/shoe2/view3.jpg', '/images/women/shoe2/view4.jpg'],
+            shoeviews: ['/images/women/shoe2/shoe.jpg', '/images/women/shoe2/view1.jpg', '/images/women/shoe2/view2.jpg', '/images/women/shoe2/view3.jpg'],
             sizes: [{ size: 'UK 4', isAvail : true}, { size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : false}],
-            description: "Follies strass flat rete/suede"
+            description: "Nude strappy leather heeled sandals"
         },
+        
         {
             id : 2003,
             name: 'Golden Goose',
@@ -94,12 +104,12 @@ let shoeList = {
         },
         {
             id : 2006,
-            name: 'The Row',
-            price: '450.00',
+            name: 'CHRISTIAN LOUBOUTIN',
+            price: '785.00',
             image: '/images/women/shoe6/shoe.jpg',
-            shoeviews: ['/images/women/shoe6/shoe.jpg', '/images/women/shoe6/view1.jpg', '/images/women/shoe6/view2.jpg', '/images/women/shoe6/view3.jpg'],
+            shoeviews: ['/images/women/shoe6/shoe.jpg', '/images/women/shoe6/view1.jpg', '/images/women/shoe6/view2.jpg', '/images/women/shoe6/view3.jpg', '/images/women/shoe6/view4.jpg'],
             sizes: [{ size: 'UK 4', isAvail : true}, { size: 'UK 5', isAvail : true},  {size: 'UK 6', isAvail : true}, {size: 'UK 7', isAvail : false}, {size: 'UK 8', isAvail : false}],
-            description: "Nude strappy leather heeled sandals"
+            description: "Follies strass flat rete/suede"
         },
     ],
 
