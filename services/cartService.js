@@ -1,4 +1,5 @@
 function addItemToCart(req, item, size, count) {
+    // To add item to cart in the current session (details.ejs)
     let cart = req.session.cart;
     if(!cart) {
         cart = [];

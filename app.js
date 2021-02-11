@@ -46,11 +46,13 @@ app.get("/sign-in", function (req, res) {
         sessionData['message'] = message;
         res.render("home.ejs", sessionData);
     } else {
+        // Show sign-in page
         res.render("signin.ejs", sessionData);
     }
 } );
 
 app.post("/sign-in", function (req, res) {
+    // User submitted username/password from the sign-in page
     let {username, password} = req.body;
     let userInfo = userService.validateUser(username, password);
     let sessionData = getCurrentSessionData(req);
@@ -114,7 +116,7 @@ app.post("/addtocart/", function (req, res) {
         sessionData['message'] = {type: 'success', data : `The ${shoeInfo.name} added to cart successfully!`};
         res.render("details.ejs", sessionData);
     } else {
-        // Shoe details not found (less likely)
+        // Shoe details not found (protect against page refresh for item that went out of stock on the previous addToCart)
         let sessionData = getCurrentSessionData(req);
         sessionData['shoeList'] = shoeService.getShoeList();
         sessionData['message'] = {type: 'error', data : `Details for shoe id ${shoeId} not found`};
@@ -123,6 +125,7 @@ app.post("/addtocart/", function (req, res) {
 });
 
 app.post("/checkout", function(req, res) {
+    // Checkout the entire cart
     let sessionData = getCurrentSessionData(req);
     if(!sessionData['username']) {
         // User hasn't logged-in. Redirect to login

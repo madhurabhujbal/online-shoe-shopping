@@ -2,20 +2,23 @@ const uuid = require('uuid');
 const userService = require('./userService');
 
 function getUserOrders(username) {
+    // Get all the orders for the current user (for orders.ejs)
     let user = userService.getUser(username);
     return user.orders;
 }
 
 function getTimeStamp() {
+    // Utility function to generate time stamp
     let d = new Date();
     let dateTime = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
     return dateTime;
 }
 
 function checkoutCart(sessionData) {
+    // Checkout the entire cart and create a new order
     let cart = sessionData['cart'];
     if(cart.length == 0) {
-        //Do nothing if accidentally cart is empty
+        //Do nothing if accidentally cart is empty, e.g., refreshing after a successful checkout
         return;
     }
 
@@ -26,6 +29,7 @@ function checkoutCart(sessionData) {
 }
 
 function getOrderDetails(orderId) {
+    // Search by order id (for the future use, track order without singing-in)
     let users = userService.getAllUsers();
     for(let user of users) {
         for(let order of user.orders) {
