@@ -59,7 +59,7 @@
 
 @media only screen and (max-width: 576px) {
   .card-img-top {
-    height: 40vh;
+    height: 50vw;
     max-width: 90%;
     object-position: 0 80%;
   }
