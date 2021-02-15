@@ -31,7 +31,7 @@ function checkoutCart(sessionData) {
 function getOrderDetails(orderId) {
     // Search by order id (for the future use, track order without singing-in)
     let users = userService.getAllUsers();
-    for(let user of users) {
+    for(let user of users) { //filter, lambda
         for(let order of user.orders) {
             if(order.id === orderId) {
                 return order;
