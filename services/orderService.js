@@ -10,7 +10,7 @@ function getUserOrders(username) {
 function getTimeStamp() {
     // Utility function to generate time stamp
     let d = new Date();
-    let dateTime = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    let dateTime = `${d.getDate()}/${(d.getMonth() + 1)}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
     return dateTime;
 }
 
