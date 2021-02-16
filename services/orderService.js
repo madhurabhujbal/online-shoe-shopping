@@ -31,13 +31,8 @@ function checkoutCart(sessionData) {
 function getOrderDetails(orderId) {
     // Search by order id (for the future use, track order without singing-in)
     let users = userService.getAllUsers();
-    for(let user of users) { //filter, lambda
-        for(let order of user.orders) {
-            if(order.id === orderId) {
-                return order;
-            }
-        }
-    }
-    return;
+    return users.map(user => user.orders)
+                .reduce((a, b) => a.concat(b))
+                .filter(order => order.id === orderId);;
 }
 module.exports = {getUserOrders, checkoutCart, getOrderDetails};
