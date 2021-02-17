@@ -190,6 +190,13 @@ app.get("/api/category/:type", (req, res) => {
     res.json(itemList);
 });
 
+app.get("/api/details/:id", (req, res) => {
+    // Specific shoe details requested
+    let shoeId = req.params.id;
+    let shoeInfo = shoeService.getShoeInfo(shoeId);
+    res.json(shoeInfo);
+});
+
 app.listen(3000, () => {
  console.log("Server running on port 3000");
 });
