@@ -184,6 +184,12 @@ app.get("/api/shoelist", (req, res) => {
     res.json(shoeList);
 });
 
+app.get("/api/category/:type", (req, res) => {
+    let category = req.params.type;
+    let itemList = shoeService.getShoeByCategory(category);
+    res.json(itemList);
+});
+
 app.listen(3000, () => {
  console.log("Server running on port 3000");
 });
