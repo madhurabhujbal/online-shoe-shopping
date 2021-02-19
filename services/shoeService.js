@@ -2,15 +2,11 @@ const {shoeList} = require('./data');
 
 function getShoeInfo(shoeId) {
     // Return the shoe object with given shoeId if found (for details.ejs)
-    let shoeInfo = null;
-    for(let catagory in shoeList) {
-        shoeList[catagory].forEach(shoe => {
-            if(shoe.id == shoeId) {
-                shoeInfo = shoe;
-            }
-        });
-    };
-    return shoeInfo;
+    return Object.keys(shoeList)
+                .map((category, value) => shoeList[category])
+                .reduce((a, b) => a.concat(b))
+                .filter(shoe => shoe.id == shoeId)[0];
+
 }
 
 function getShoeByCategory(searchCategory) {

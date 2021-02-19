@@ -33,6 +33,6 @@ function getOrderDetails(orderId) {
     let users = userService.getAllUsers();
     return users.map(user => user.orders)
                 .reduce((a, b) => a.concat(b))
-                .filter(order => order.id === orderId);;
+                .filter(order => order.id === orderId);
 }
 module.exports = {getUserOrders, checkoutCart, getOrderDetails};
