@@ -11,11 +11,9 @@ function getShoeInfo(shoeId) {
 
 function getShoeByCategory(searchCategory) {
     // Give specific category from shoeList (for category.ejs)
-    for (const [category, itemList] of Object.entries(shoeList)) {
-        if(searchCategory == category) {
-            return itemList;
-        }
-    };
+    return Object.keys(shoeList)
+                 .filter((category, shoes) => category == searchCategory)
+                 .map(category => shoeList[category])[0];
 }
 
 function getShoeList() {
