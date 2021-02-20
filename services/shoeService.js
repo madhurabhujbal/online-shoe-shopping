@@ -3,7 +3,7 @@ const {shoeList} = require('./data');
 function getShoeInfo(shoeId) {
     // Return the shoe object with given shoeId if found (for details.ejs)
     return Object.keys(shoeList)
-                .map((category, value) => shoeList[category])
+                .map(category => shoeList[category])
                 .reduce((a, b) => a.concat(b))
                 .filter(shoe => shoe.id == shoeId)[0];
 
@@ -12,7 +12,7 @@ function getShoeInfo(shoeId) {
 function getShoeByCategory(searchCategory) {
     // Give specific category from shoeList (for category.ejs)
     return Object.keys(shoeList)
-                 .filter((category, shoes) => category == searchCategory)
+                 .filter(category => category == searchCategory)
                  .map(category => shoeList[category])[0];
 }
 
