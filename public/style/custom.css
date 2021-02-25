@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.text-glow {
+  font-size: x-large;
+  text-shadow: 2px 2px gray;
+}
+
 .carousel-inner {
   width: 100%;
 }
